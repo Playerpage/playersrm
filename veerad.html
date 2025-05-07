@@ -75,23 +75,16 @@
     </div>
   </div>
 
-  <script>
-    // Hardcoded video and download URLs
-    const videoUrl = "https://pub-c112d6c4191e458db7adfadb97398a27.r2.dev/Veera_Dheera_Sooran.mp4";
-    const downloadUrl = "https://drive.usercontent.google.com/download?id=1k7LS_xF1Ek5gqevCT85sv37bBSdwoWs2&export=download&authuser=0";
+<script>
+  const videoUrl = "https://pub-c112d6c4191e458db7adfadb97398a27.r2.dev/Veera_Dheera_Sooran.mp4";
+  const downloadUrl = "https://drive.usercontent.google.com/download?id=1k7LS_xF1Ek5gqevCT85sv37bBSdwoWs2&export=download&authuser=0";
 
-    // Set video source
-    document.getElementById('movie-video').src = videoUrl;
+  document.getElementById('movie-video').src = videoUrl;
 
-    // Download button logic
-    document.getElementById('download-icon').addEventListener('click', () => {
-      const link = document.createElement('a');
-      link.href = downloadUrl;
-      link.download = 'Veera_Dheera_Sooran.mp4'; // optional filename
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    });
-  </script>
+  document.getElementById('download-icon').addEventListener('click', () => {
+    // Open the download URL in a new browser tab
+    window.open(downloadUrl, '_blank');
+  });
+</script>
 </body>
 </html>
