@@ -33,12 +33,14 @@
     .video-player {
       width: 100%;
       border-radius: 10px;
+      transition: transform 0.3s ease;
     }
     .icon-buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
       margin: 20px 0;
+      flex-wrap: wrap;
     }
     .icon-button {
       display: inline-flex;
@@ -68,27 +70,48 @@
       <video id="movie-video" class="video-player" controls autoplay preload="auto"></video>
     </div>
 
-    <!-- Download Button -->
+    <!-- Control Buttons -->
     <div class="icon-buttons">
       <div class="icon-button" id="download-icon">
         <i class="material-icons">download</i> Download
       </div>
+      <div class="icon-button" onclick="openFullscreen()">
+        <i class="fas fa-expand"></i> Fullscreen
+      </div>
+      <div class="icon-button" onclick="rotateVideo()">
+        <i class="fas fa-sync-alt"></i> Rotate
+      </div>
     </div>
 
-    <h3> Rotate your phone to view in full screen </h3>
-    
+    <h3>Enable Auto-Rotate to view in full screen</h3>
   </div>
 
 <script>
+  const video = document.getElementById('movie-video');
   const videoUrl = "https://pub-c112d6c4191e458db7adfadb97398a27.r2.dev/Veera_Dheera_Sooran.mp4";
   const downloadUrl = "https://drive.usercontent.google.com/download?id=1k7LS_xF1Ek5gqevCT85sv37bBSdwoWs2&export=download&authuser=0";
+  let rotation = 0;
 
-  document.getElementById('movie-video').src = videoUrl;
+  video.src = videoUrl;
 
   document.getElementById('download-icon').addEventListener('click', () => {
-    // Open the download URL in a new browser tab
     window.open(downloadUrl, '_blank');
   });
+
+  function openFullscreen() {
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if (video.webkitRequestFullscreen) {
+      video.webkitRequestFullscreen();
+    } else if (video.msRequestFullscreen) {
+      video.msRequestFullscreen();
+    }
+  }
+
+  function rotateVideo() {
+    rotation = (rotation + 90) % 360;
+    video.style.transform = `rotate(${rotation}deg)`;
+  }
 </script>
 </body>
 </html>
