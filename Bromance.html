@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="refresh" content="5000000">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Page</title>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -18,28 +19,34 @@
       align-items: center;
       justify-content: center;
     }
+
     .movie-container {
       text-align: center;
       max-width: 800px;
       width: 100%;
       position: relative;
     }
+
     .video-container {
       width: 100%;
       border-radius: 10px;
       overflow: hidden;
       margin-top: 10px;
     }
+
     .video-player {
       width: 100%;
       border-radius: 10px;
     }
+
     .icon-buttons {
       display: flex;
       justify-content: center;
       gap: 15px;
       margin: 20px 0;
+      flex-wrap: wrap;
     }
+
     .icon-button {
       display: inline-flex;
       align-items: center;
@@ -52,43 +59,53 @@
       color: #fff;
       cursor: pointer;
       transition: all 0.3s;
+      text-decoration: none;
     }
+
     .icon-button:hover {
       background-color: #45a049;
     }
+
     .icon-button i {
       margin-right: 8px;
+    }
+
+    h3 {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
   <div class="movie-container">
+
     <!-- Video Container -->
     <div class="video-container">
       <video id="movie-video" class="video-player" controls autoplay preload="auto"></video>
     </div>
 
-    <!-- Download Button -->
+    <!-- Buttons: Download + Back -->
     <div class="icon-buttons">
       <div class="icon-button" id="download-icon">
         <i class="material-icons">download</i> Download
       </div>
+
+      <a href="https://tech-developer-test.github.io/test/index.html" class="icon-button">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
     </div>
 
-    <h3> Enable Auto-Rotate to view in full screen </h3>
-    
+    <h3>Enable Auto-Rotate to view in full screen</h3>
   </div>
 
-<script>
-  const videoUrl = "https://dl9.hotshare.top/Bromance_2025_Original_360p_HD.mp4";
-  const downloadUrl = "https://dl.hotshare.top/Bromance_2025_Original_360p_HD.mp4";
+  <script>
+    const videoUrl = "https://dl9.hotshare.top/Bromance_2025_Original_360p_HD.mp4";
+    const downloadUrl = videoUrl;
 
-  document.getElementById('movie-video').src = videoUrl;
+    document.getElementById('movie-video').src = videoUrl;
 
-  document.getElementById('download-icon').addEventListener('click', () => {
-    // Open the download URL in a new browser tab
-    window.open(downloadUrl, '_blank');
-  });
-</script>
+    document.getElementById('download-icon').addEventListener('click', () => {
+      window.open(downloadUrl, '_blank');
+    });
+  </script>
 </body>
 </html>
