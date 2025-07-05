@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="5000000">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Series - All Episodes</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+      margin: 0;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .movie-container {
+      text-align: center;
+      max-width: 800px;
+      width: 100%;
+    }
+
+    .video-container {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 10px;
+    }
+
+    .video-player {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .video-selector, .icon-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 20px 0;
+    }
+
+    .video-button, .icon-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      border: 1px solid #fff;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .video-button:hover, .icon-button:hover {
+      background-color: #45a049;
+    }
+
+    .icon-button i {
+      margin-right: 8px;
+    }
+
+    h3 {
+      margin-top: 20px;
+      font-weight: normal;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="movie-container">
+    <!-- Video Player -->
+    <div class="video-container">
+      <video id="movie-video" class="video-player" controls autoplay preload="auto"></video>
+    </div>
+
+    <!-- Episode Buttons -->
+    <div class="video-selector">
+      <div class="video-button" onclick="changeVideo('https://big1.bigbosscdn.cfd/Moviesda.Mobi_-_Good_Wife_2025_Season_01__Epi_01_.mp4')">Episode 1</div>
+      <div class="video-button" onclick="changeVideo('https://big1.bigbosscdn.cfd/Moviesda.Mobi_-_Good_Wife_2025_Season_01__Epi_02_.mp4')">Episode 2</div>
+      <div class="video-button" onclick="changeVideo('https://big1.bigbosscdn.cfd/Moviesda.Mobi_-_Good_Wife_2025_Season_01__Epi_03_.mp4')">Episode 3</div>
+      <div class="video-button" onclick="changeVideo('https://big1.bigbosscdn.cfd/Moviesda.Mobi_-_Good_Wife_2025_Season_01__Epi_04_.mp4')">Episode 4</div>
+      <div class="video-button" onclick="changeVideo('https://big1.bigbosscdn.cfd/Moviesda.Mobi_-_Good_Wife_2025_Season_01__Epi_05_.mp4')">Episode 5</div>
+      <div class="video-button" onclick="changeVideo('https://big1.bigbosscdn.cfd/Moviesda.Mobi_-_Good_Wife_2025_Season_01__Epi_06_.mp4')">Episode 6</div>
+    </div>
+
+    <!-- Download & Back Buttons -->
+    <div class="icon-buttons">
+      <div class="icon-button" id="download-icon">
+        <i class="material-icons">download</i> Download
+      </div>
+      <a href="https://tech-developer-test.github.io/test/index.html" class="icon-button">
+        <i class="fas fa-arrow-left"></i> Back to Home
+      </a>
+    </div>
+
+    <h3>Rotate your device for full-screen view</h3>
+  </div>
+
+  <script>
+    let currentVideoUrl = "https://dl.hotshare.top/Episode1.mp4";
+    const videoElement = document.getElementById('movie-video');
+
+    function changeVideo(url) {
+      currentVideoUrl = url;
+      videoElement.src = url;
+      videoElement.play();
+    }
+
+    document.getElementById('download-icon').addEventListener('click', () => {
+      window.open(currentVideoUrl, '_blank');
+    });
+
+    // Set initial video
+    videoElement.src = currentVideoUrl;
+  </script>
+
+</body>
+</html>
