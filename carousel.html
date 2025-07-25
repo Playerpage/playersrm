@@ -1,1 +1,41 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Carousel</title>
+  <style>
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: auto;
+      scroll-snap-align: center;
+      flex-shrink: 0;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-right: 10px;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="carousel">
+    <img src="images/image1.jpg" alt="Retail 1">
+    <img src="images/image2.jpg" alt="Retail 2">
+    <img src="images/image3.jpg" alt="Retail 3">
+  </div>
+
+</body>
+</html>
